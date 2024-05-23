@@ -47,7 +47,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="relative flex font-sans max-w-full min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
+      <nav className="relative z-10 flex font-sans max-w-full min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
         <div className="ml-12 min-w-[130px] min-h-[46px]">
           <img src="./public/images/logo-banten-panglipur.png" alt="logo" />
         </div>
