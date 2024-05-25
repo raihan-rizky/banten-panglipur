@@ -19,13 +19,13 @@ export default function Hero(){
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src="./public/images/banten-hero-bg.png" className="d-block  object-cover min-h-[832px]" alt="Slide 1" />
+              <img src="./public/images/banten-hero-bg.jpg" className="d-block  object-cover min-h-[832px]" alt="Slide 1" />
             </div>
             <div className="carousel-item">
               <img src="./public/images/banten-hero-bg2.png" className="d-block  object-cover min-h-[832px]" alt="Slide 2" />
             </div>
             <div className="carousel-item">
-              <img src="./public/images/banten-hero-bg3.png" className="d-block  object-cover min-h-[832px]" alt="Slide 3" />
+              <img src="./public/images/banten-hero-bg3.jpg" className="d-block  object-cover min-h-[832px]" alt="Slide 3" />
             </div>
           </div>
         </div>
