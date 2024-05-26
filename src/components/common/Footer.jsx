@@ -13,7 +13,9 @@
           <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/97552ecda60340fd942dd3dfcbd3f652ede36c26588527d0bfb5289fc9486c6c?apiKey=086f9e918f6c40cfbf2a7915a1bfe439&" alt="Company Info" className="self-stretch my-auto max-w-full aspect-[4.76] w-[134px]" />
         </nav>
         
+        
       </header>
+      <div className="translate-y-1 w-full h-1 bg-black m-5 border-1 border-solid border-black rounded-md" />
       <div className="mt-8 text-sm leading-6 text-center text-slate-300 w-[309px]">
         © Copyright 2022, All Rights Reserved by ClarityUI
       </div>

@@ -18,7 +18,7 @@ export default withMT({
       keyframes: {
         "infinite-scroll": {
           from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-20%)" }, // Fixed typo here
+          to: { transform: "translateX(-100%)" }, // Fixed typo here
         },
         "infinite-scroll-reverse": {
           from: { transform: "translateX(-20%)" },
