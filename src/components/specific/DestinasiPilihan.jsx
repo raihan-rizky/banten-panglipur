@@ -47,7 +47,7 @@ const DestinasiPilihan = () => {
   return (
     <div className='flex flex-col text-center container max-w-full min-h-[808px] [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
       <div className="container max-w-full mb-20">
-        <h1 className="text-[#090914] text-[40] font-bold">Destinasi Pilihan</h1>
+        <h1 className="text-[#090914] text-[40] font-extrabold">Destinasi Pilihan</h1>
       </div>
       <div
         className="flex overflow-hidden space-x-6 w-full "
@@ -56,7 +56,7 @@ const DestinasiPilihan = () => {
       >
         <div
           ref={carouselRef}
-          className="flex gap-12 items-center justify-center animate-infinite-scroll max-w-none "
+          className="flex gap-12 items-center justify-center animate-infinite-scroll max-w-full "
         >
           {infiniteImages.map((image, index) => (
             <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} />

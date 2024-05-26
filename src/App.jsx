@@ -1,8 +1,12 @@
 import './App.css'
-import NavBar from './components/specific/Navbar'
+import NavBar from './components/common/Navbar'
 import Hero from './components/specific/Hero'
 import AboutUs from './components/specific/AboutUs'
 import DestinasiPilihan from './components/specific/DestinasiPilihan'
+import EventBudaya from './components/specific/EventBudaya'
+import ReviewWebsite from './components/specific/ReviewWebsite'
+import Footer from './components/common/Footer'
+
 function App() {
   return (
     <>
@@ -10,6 +14,9 @@ function App() {
           <Hero></Hero>
         <AboutUs></AboutUs>
         <DestinasiPilihan></DestinasiPilihan>
+        <EventBudaya></EventBudaya>
+        <ReviewWebsite></ReviewWebsite>
+        <Footer></Footer>
     </>
   )
 }
