@@ -20,8 +20,8 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
           <li>Register</li>
           <li>Login</li>
           {Links.map((link) => (
-            <li key={link.name} className="">
-              <a href={link.link} className="">
+            <li key={link.name} className="text-[#242424]">
+              <a href={link.link} className="text-[#242424]">
                 {link.name}
               </a>
             </li>
@@ -54,8 +54,8 @@ export default function NavBar() {
         <div className="text-[#242424] hidden md-min:block xl-max:-translate-x-28">
           <ul className="h-6 w-6 flex gap-x-12 max-w-full items-center">
             {Links.map((link) => (
-              <li key={link.name} className="">
-                <a href={link.link} className="">
+              <li key={link.name} className="text-[#242424]">
+                <a href={link.link} className="text-[#242424]">
                   {link.name}
                 </a>
               </li>

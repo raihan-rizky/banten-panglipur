@@ -3,7 +3,7 @@ import { Carousel, IconButton } from "@material-tailwind/react";
 const CardEventBudaya = ({ imageSrc, titleText, eventTime, mediaText, description, date }) =>{
     return(
         <>
-                <div className="flex z-20 flex-col p-4 text-sm rounded bg-white max-w-[222px] text-slate-500">
+                <div className="flex z-20 flex-col p-4 text-sm rounded-[10px] bg-white max-w-[222px] text-slate-500">
         <div className="text-sm pr-16 text-[#5388AA]">{titleText}</div>
         <img
             loading="lazy"
@@ -11,7 +11,7 @@ const CardEventBudaya = ({ imageSrc, titleText, eventTime, mediaText, descriptio
             className="self-center mt-1.5 w-full aspect-[1.52]"
         />
         <div className="mt-3 pr-[7rem]">{eventTime}</div>
-        <p className="mt-1 max-w-[174px] min-h-[80px] text-justify pr-0 font-semibold text-zinc-900">
+        <p className="mt-1 max-w-[174px] min-h-[80px] text-left pr-0 font-semibold text-zinc-900">
             {description}
         </p>
         <div className="flex pr-[3.25rem] pt-6 gap-2 mt-4">
@@ -49,7 +49,7 @@ const EventBudaya = () => {
                         <img className='absolute max-w-full right-12 translate-x-40 bottom-1/4 ' src='./public/images/ellipse-pattern.png'/>
                     </div>
                 </div>
-                <Carousel transition={{ duration: 2 }} className="rounded-xl" prevArrow={({ handlePrev }) => (
+                <Carousel transition={{ duration: 2 }} className="rounded-xl mb-10" prevArrow={({ handlePrev }) => (
         <IconButton
           variant="text"
           color="black"
@@ -96,7 +96,7 @@ const EventBudaya = () => {
             />
           </svg> </IconButton>
       )}>
-                <div className="xl-max:grid-cols-2 xl-max:grid xl-max:gap-8 mb-20 xl-min:flex xl-min:p-40">
+                <div className="xl-max:grid-cols-2 xl-max:grid xl-max:gap-8 xl-min:flex xl-min:p-40">
               
                     {dataCard.map((data, index) => (
             <CardEventBudaya key={index} titleText={data.titleText} imageSrc={data.src}
@@ -104,7 +104,7 @@ const EventBudaya = () => {
           ))}
       
                 </div>
-                <div className="xl-max:grid-cols-2 xl-max:grid xl-max:gap-8 mb-20 xl-min:flex xl-min:p-40">
+                <div className="xl-max:grid-cols-2 xl-max:grid xl-max:gap-8 xl-min:flex xl-min:p-40">
               
                     {dataCard.map((data, index) => (
             <CardEventBudaya key={index} titleText={data.titleText} imageSrc={data.src}

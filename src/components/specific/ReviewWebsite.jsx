@@ -68,7 +68,7 @@ const ReviewWebsite = () => {
 
   return (
     <>
-      <div className='container w-full bg-white min-h-[941px] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
+      <div className='container w-full bg-white min-h-[641px] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
         <div className="flex flex-col">
           <div className="text-3xl font-bold text-center mt-20 mb-20 text-black md:max-w-full">
             Apa yang Orang Pikirkan Tentang Kami ?
