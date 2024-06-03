@@ -22,7 +22,7 @@
       </header>
       <div className="translate-y-1 w-full h-1 bg-black m-2 border-1 border-solid border-black rounded-md" />
       <div className="mt-8 text-sm leading-6 text-center text-slate-300 w-[309px]">
-        © Copyright 2022, All Rights Reserved by ClarityUI
+        © Copyright 2022, All Rights Reserved by Banten Panglipur
       </div>
       </footer>
     );
