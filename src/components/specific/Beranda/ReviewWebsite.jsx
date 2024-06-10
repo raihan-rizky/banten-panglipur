@@ -83,7 +83,7 @@ const ReviewWebsite = () => {
               className="flex gap-5 justify-between animate-infinite-scroll-fast"
             >
               {infiniteData.map((review, index) => (
-                <div key={index} className="md:max-w-full">
+                <div key={index} className="">
                   <ReviewCard
                     name={review.name}
                     company={review.company}

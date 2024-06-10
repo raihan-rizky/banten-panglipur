@@ -1,4 +1,4 @@
-import ImageWithCaption from "../common/ImageWithCaption.jsx";
+import ImageWithCaption from "../../common/ImageWithCaption.jsx";
 import { useRef } from "react";
 
 const images = [

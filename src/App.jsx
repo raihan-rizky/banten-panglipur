@@ -1,12 +1,12 @@
 import './App.css'
 import NavBar from './components/common/Navbar'
 import Footer from './components/common/Footer'
-import Home from './pages/Home'
+import Beranda from './pages/Beranda'
 function App() {
   return (
     <>
           <NavBar></NavBar>
-          <Home></Home> 
+          <Beranda></Beranda> 
           <Footer></Footer>
           
     </>
