@@ -2,7 +2,7 @@ export default function Hero(){
     return(
       <>
       <div className="relative -translate-y-[76px] max-w-full min-h-[714px]">
-      <div className="absolute w-100 translate-y-20 z-10 min-h-[732px] bg-[url('./public/images/hero-pattern.png')]">
+      <div className="absolute w-full translate-y-20 z-10 min-h-[732px] bg-[url('./public/images/hero-pattern.png')]">
       </div>
       <div className="container flex flex-col min-h-[732px] ml-0 pt-[330px] pl-[143px]">
         <h1 className=" z-20 max-w-[442px] min-h-[144px] text-white text-[48px] font-bold">Menyatu Budaya Wisatawan Dunia</h1>
@@ -22,10 +22,10 @@ export default function Hero(){
               <img src="./public/images/banten-hero-bg.jpg" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 1" />
             </div>
             <div className="carousel-item">
-              <img src="./public/images/banten-hero-bg2.png" className="d-block  object-cover min-h-[832px]" alt="Slide 2" />
+              <img src="./public/images/banten-hero-bg2.png" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 2" />
             </div>
             <div className="carousel-item">
-              <img src="./public/images/banten-hero-bg3.webp" className="d-block  object-cover min-h-[832px]" alt="Slide 3" />
+              <img src="./public/images/banten-hero-bg3.webp" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 3" />
             </div>
           </div>
         </div>
