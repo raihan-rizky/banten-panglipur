@@ -8,6 +8,7 @@ function App() {
           <NavBar></NavBar>
           <Home></Home> 
           <Footer></Footer>
+          
     </>
   )
 }
