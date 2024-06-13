@@ -4,8 +4,6 @@ import Footer from './components/common/Footer'
 import Beranda from './pages/Beranda'
 import IsiBudaya from './pages/isiBudaya'
 import { Route, Routes } from "react-router-dom"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
@@ -16,6 +14,7 @@ function App() {
             <Route path="/profile" element = {<Beranda/>} />
             <Route path="/wisata" element = {<Beranda/>} />
             <Route path="/budaya" element = {<IsiBudaya/>} />
+            <Route path="/budaya/:id" element={<IsiBudaya />} />
           </Routes>
           <Footer></Footer>
           

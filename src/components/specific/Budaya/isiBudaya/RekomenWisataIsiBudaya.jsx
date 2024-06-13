@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import ImageWithCaption from '../../../common/ImageWithCaption';
+import ImageWithCaption2 from '../../../common/ImageWithCaption';
 import { Carousel, IconButton } from "@material-tailwind/react";
 
 const images = [
-    { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-    { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-    { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
+    { src: "../../public/images/pantai-anyer.png", caption: "Pantai Anyer" },
+    { src: "../../public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
+    { src: "../../public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
   ];
 const images2 = [
-    { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-    { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-    { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
+    { src: "../../public/images/pantai-anyer.png", caption: "Pantai Anyer" },
+    { src: "../../public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
+    { src: "../../public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
   ];
 
 
@@ -18,9 +18,9 @@ const RekomenWisataIsiBudaya = () => {
     return (
         <>
             <div className='container relative max-w-full h-auto'>
-                <h1 className='font-bold text-3xl text-center'>Rekomendasi Wisata</h1>
-            <div className='container max-w-full h-auto px-20'>
-            <Carousel transition={{ duration: 1 }} className="rounded-xl min-h-[478px]" prevArrow={({ handlePrev }) => (
+                <h1 className='font-bold text-3xl text-center mb-20'>Rekomendasi Wisata</h1>
+            <div className='container max-w-full h-auto px-40'>
+            <Carousel transition={{ duration: 1 }} className="rounded-xl w-full min-h-[228px]" prevArrow={({ handlePrev }) => (
         <IconButton
           variant="text"
           color="black"
@@ -68,7 +68,7 @@ const RekomenWisataIsiBudaya = () => {
           </svg> </IconButton>
       )}
       navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-0 left-2/4 z-50 flex -translate-x-2/4 gap-2 mb-20">
+        <div className="absolute bottom-0 left-2/4 z-50 flex -translate-x-2/4 gap-2 ">
           {new Array(length).fill("").map((_, i) => (
             <span
               key={i}
@@ -81,19 +81,19 @@ const RekomenWisataIsiBudaya = () => {
         </div>
       )}
       >
-        <div className='flex mt-20 px-20'>
+        <div className='flex mt-22 px-20'>
                     {images.map((image,index) => (
                          
-                        <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} 
-                        ></ImageWithCaption>
+                        <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
+                        ></ImageWithCaption2>
 
                     ))}
              </div>
-             <div className='flex mt-20 px-20'>
+             <div className='flex mt-22 px-20'>
                     {images2.map((image,index) => (
                         
-                        <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} 
-                        > </ImageWithCaption>
+                        <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
+                        > </ImageWithCaption2>
                     
                     ))}
                 </div>
@@ -103,6 +103,7 @@ const RekomenWisataIsiBudaya = () => {
                 </div>
 
             </div>
+            <div className="relative my-20 h-1 mx-60 max-w-[1900px] bg-black border-1 border-solid border-black rounded-md" />
         </>
     )
 }

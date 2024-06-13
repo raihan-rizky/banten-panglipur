@@ -3,7 +3,7 @@ const MapIsiBudaya = () => {
         <>
             <div className="container gap-10 p-20 translate-x-24 grid grid-cols-3 w-full h-auto mb-20">
                 <picture>
-                    <img src="./public/images/map-template.png"/>
+                    <img src="../../public/images/map-template.png"/>
                 </picture>
                 <div className="container min-w-[261px] min-h-[350px] bg-[#DBECF0]">
                     <h1 className="text-xl font-bold p-2">Informasi</h1>
