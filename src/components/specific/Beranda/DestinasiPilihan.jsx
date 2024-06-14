@@ -1,5 +1,6 @@
 import { ImageWithCaption } from "../../common/ImageWithCaption.jsx";
 import { useRef } from "react";
+import { Link } from "react-router-dom"
 
 const images = [
   { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer", id: 1, },
@@ -31,6 +32,7 @@ const DestinasiPilihan = () => {
   const carouselRef = useRef(null);
   const carouselRef2 = useRef(null);
 
+
   const handleHoverStart = (ref) => {
     if (ref.current) {
       ref.current.style.animationPlayState = "paused";
@@ -58,7 +60,9 @@ const DestinasiPilihan = () => {
           className="flex gap-12 items-center justify-center animate-infinite-scroll max-w-full "
         >
           {infiniteImages.map((image, index) => (
-            <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} imageLink= {`/budaya/${image.id}`} />
+            <Link key={index} to={`/budaya/${image.id}`}>
+            <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} imageId= {image.id} />
+            </Link>
           ))}
         </div>
       </div>

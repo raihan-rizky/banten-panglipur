@@ -1,16 +1,20 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 //buat event budaya
-const ImageWithCaption = ({ imageSrc, caption, imageLink }) => {
+const ImageWithCaption = ({ imageSrc, caption, imageId }) => {
+  const navigate = useNavigate();
+  const handleImageClick = (contentId, imageSource) => {
+    navigate(`/budaya/${contentId}`, { state: { imageSource } });
+  };
   return (
     <>
     <div className="relative text-center text-white min-w-[398px] min-h-[122px] ">
-      <Link to={imageLink}>
-        <img loading="lazy" src={imageSrc} alt={caption} className="w-full h-auto rounded-lg " />
-        </Link>
+      <img loading="lazy" src={imageSrc} alt={caption} 
+      className="w-full h-auto rounded-lg " 
+      onClick = {() => handleImageClick({imageId}, {imageSrc})}/>
       <div className="container absolute min-h-14 font-[700] bottom-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-t from-black/60 to-transparent px-4 py-2 rounded-[20px]">
         {caption}
-      </div>
+      </div> 
     </div>
     </>
   );

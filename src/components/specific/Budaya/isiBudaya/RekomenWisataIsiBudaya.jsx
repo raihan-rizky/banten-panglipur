@@ -20,7 +20,7 @@ const RekomenWisataIsiBudaya = () => {
             <div className='container relative max-w-full h-auto'>
                 <h1 className='font-bold text-3xl text-center mb-20'>Rekomendasi Wisata</h1>
             <div className='container max-w-full h-auto px-40'>
-            <Carousel transition={{ duration: 1 }} className="rounded-xl w-full min-h-[228px]" prevArrow={({ handlePrev }) => (
+            <Carousel transition={{ duration: 1 }} className="rounded-xl lg:min-h-[750px] container min-h-[228px] max-h-full" prevArrow={({ handlePrev }) => (
         <IconButton
           variant="text"
           color="black"
@@ -68,7 +68,7 @@ const RekomenWisataIsiBudaya = () => {
           </svg> </IconButton>
       )}
       navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-0 left-2/4 z-50 flex -translate-x-2/4 gap-2 ">
+        <div className="absolute bottom-0 lg:translate-y-0 left-2/4 z-50 flex -translate-x-2/4 gap-2 ">
           {new Array(length).fill("").map((_, i) => (
             <span
               key={i}
@@ -81,7 +81,7 @@ const RekomenWisataIsiBudaya = () => {
         </div>
       )}
       >
-        <div className='flex mt-22 px-20'>
+        <div className='flex mt-22 px-20 lg:flex-col  lg:gap-32 lg:translate-x-8 lg:transform'>
                     {images.map((image,index) => (
                          
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
@@ -89,7 +89,7 @@ const RekomenWisataIsiBudaya = () => {
 
                     ))}
              </div>
-             <div className='flex mt-22 px-20'>
+             <div className='flex lg:flex-col translate-x-6  lg:gap-32 lg:translate-x-8 lg:transform mt-22 px-20'>
                     {images2.map((image,index) => (
                         
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
