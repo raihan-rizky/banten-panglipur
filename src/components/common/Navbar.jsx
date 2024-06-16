@@ -1,5 +1,7 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
+import { NavLink } from "react-router-dom";
+
 const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
   return (
     <div
@@ -21,9 +23,17 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
           <li>Login</li>
           {Links.map((link) => (
             <li key={link.name} className="text-[#242424]">
-              <a href={link.link} className="text-[#242424]">
+              <NavLink to={link.link} 
+              style={({ isActive, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "extra-bold" : "",
+                  color: isActive ? "white" : "black",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}  
+              className="text-[#242424]">
                 {link.name}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -35,9 +45,9 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
 export default function NavBar() {
   let Links = [
     { name: "Beranda", link: "/" },
-    { name: "Profile", link: "/" },
-    { name: "Wisata", link: "/" },
-    { name: "Budaya", link: "/" },
+    { name: "Profile", link: "/profile" },
+    { name: "Wisata", link: "/wisata" },
+    { name: "Budaya", link: "/budaya" },
   ];
   let [isOpen, setOpen] = useState(false);
 
@@ -55,9 +65,17 @@ export default function NavBar() {
           <ul className="h-6 w-6 flex gap-x-12 max-w-full items-center">
             {Links.map((link) => (
               <li key={link.name} className="text-[#242424]">
-                <a href={link.link} className="text-[#242424]">
+                <NavLink to={link.link} 
+                style={({ isActive, isTransitioning }) => {
+                  return {
+                    fontWeight: isActive ? "extra-bold" : "",
+                    color: isActive ? "white" : "black",
+                    viewTransitionName: isTransitioning ? "slide" : "",
+                  };
+                }}
+                 className="text-[#242424]">
                   {link.name}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

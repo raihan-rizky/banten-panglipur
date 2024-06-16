@@ -1,14 +1,12 @@
 import './App.css'
 import NavBar from './components/common/Navbar'
 import Footer from './components/common/Footer'
-import ProfileWeb from './pages/ProfileWeb'
-// import Beranda from './pages/Beranda'
+import Beranda from './pages/Beranda'
 function App() {
   return (
     <>
           <NavBar></NavBar>
-          {/* <Beranda></Beranda> */}
-          <ProfileWeb></ProfileWeb>
+          <Beranda></Beranda> 
           <Footer></Footer>
           
     </>
