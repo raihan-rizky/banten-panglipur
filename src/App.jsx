@@ -1,14 +1,16 @@
 import './App.css'
 import NavBar from './components/common/Navbar'
 import Footer from './components/common/Footer'
-import Beranda from './pages/Beranda'
+import AppRoutes from './routes/AppRoutes'
+
 function App() {
   return (
     <>
-          <NavBar></NavBar>
-          <Beranda></Beranda> 
-          <Footer></Footer>
-          
+      <NavBar></NavBar>
+      <AppRoutes></AppRoutes>
+      <Footer></Footer>
+
+
     </>
   )
 }

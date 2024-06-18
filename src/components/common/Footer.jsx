@@ -28,10 +28,10 @@ import { NavLink } from "react-router-dom";
               </li>
             ))}
           <ul className="container flex w-full lg:grid-cols-2 lg:grid lg:col-span-2">
-            <li className="aspect-square min-w-[44px]"><img src="./public/images/twitter-icon.png"></img></li>
-            <li className="aspect-square min-w-[44px]"><img src="./public/images/facebook-icon.png"></img></li>
-            <li className="aspect-square min-w-[44px]"><img src="./public/images/instagram-icon.png"></img></li>
-            <li className="aspect-square min-w-[44px]"><img src="./public/images/github-icon.png"></img></li>
+            <li className="aspect-square min-w-[44px]"><img src="../../public/images/twitter-icon.png"></img></li>
+            <li className="aspect-square min-w-[44px]"><img src="../../public/images/facebook-icon.png"></img></li>
+            <li className="aspect-square min-w-[44px]"><img src="../../public/images/instagram-icon.png"></img></li>
+            <li className="aspect-square min-w-[44px]"><img src="../../public/images/github-icon.png"></img></li>
           </ul>
         </nav>
         

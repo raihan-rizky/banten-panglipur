@@ -1,0 +1,32 @@
+[
+    { 
+        "src": "../../../public/images/hero-isi-budaya.png", 
+        "caption": "Pantai Anyer", 
+        "id": "1",
+        "address": "Kadujangkung, Bojong Menteng, Kec. Leuwidamar, Kabupaten Lebak, Banten 42362" 
+    },
+    { 
+        "src": "../../../public/images/hero-isi-budaya2.png", 
+        "caption": "Ujung Kulon",
+        "id": "2",
+        "address": "698G+42H, Ujungjaya, Banten" },
+    { 
+        "src": "../../../public/images/puncak-gunung-karang.png", 
+        "caption": "Puncak Gunung Karang", 
+        "id": "3"},
+    { 
+        "src": "../../../public/images/bentang-speelwijk.png", 
+        "caption": "Bentang Speelwijk", 
+        "id": "4" },
+    { 
+        "src": "../../../public/images/danau-biru.png", 
+        "caption": "Danau Biru", 
+        "id": "5" },
+
+    { 
+        "src": "../../../public/images/curug-cikotak.png", 
+        "caption": "Curug Cikotak",
+         "id": "6"
+         }
+
+]

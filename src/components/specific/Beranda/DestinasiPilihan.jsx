@@ -1,21 +1,22 @@
-import ImageWithCaption from "../../common/ImageWithCaption.jsx";
+import { ImageWithCaption } from "../../common/ImageWithCaption.jsx";
 import { useRef } from "react";
+import { Link } from "react-router-dom"
 
 const images = [
-  { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-  { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-  { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
-  { src: "./public/images/bentang-speelwijk.png", caption: "Bentang Speelwijk" },
-  { src: "./public/images/danau-biru.png", caption: "Danau Biru" },
-  { src: "./public/images/curug-cikotak.png", caption: "Curug Cikotak" },
+  { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer", id: 1, },
+  { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung", id: 2 },
+  { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang", id: 3},
+  { src: "./public/images/bentang-speelwijk.png", caption: "Bentang Speelwijk", id: 4 },
+  { src: "./public/images/danau-biru.png", caption: "Danau Biru", id: 5 },
+  { src: "./public/images/curug-cikotak.png", caption: "Curug Cikotak", id: 6 },
 ];
 const images2 = [
-  { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-  { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-  { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
-  { src: "./public/images/bentang-speelwijk.png", caption: "Bentang Speelwijk" },
-  { src: "./public/images/danau-biru.png", caption: "Danau Biru" },
-  { src: "./public/images/curug-cikotak.png", caption: "Curug Cikotak" },
+  { src: "./public/images/pantai-anyer.png", caption: "Pantai Anyer", id: 1, },
+  { src: "./public/images/tanjung-lesung.png", caption: "Tanjung Lesung", id: 2 },
+  { src: "./public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang", id: 3},
+  { src: "./public/images/bentang-speelwijk.png", caption: "Bentang Speelwijk", id: 4 },
+  { src: "./public/images/danau-biru.png", caption: "Danau Biru", id: 5 },
+  { src: "./public/images/curug-cikotak.png", caption: "Curug Cikotak", id: 6 },
 ];
 
 
@@ -59,7 +60,9 @@ const DestinasiPilihan = () => {
           className="flex gap-12 items-center justify-center animate-infinite-scroll max-w-full "
         >
           {infiniteImages.map((image, index) => (
-            <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} />
+            <Link key={index} to={`/budaya/${image.id}`}>
+            <ImageWithCaption key={index} imageSrc={image.src} caption={image.caption} imageId= {image.id} />
+            </Link>
           ))}
         </div>
       </div>
