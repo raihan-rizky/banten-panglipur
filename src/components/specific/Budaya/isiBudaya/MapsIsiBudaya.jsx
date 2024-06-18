@@ -16,7 +16,7 @@ const MapIsiBudaya = () => {
                 <picture className="col-span-2 lg:col-span-1">
                     <img className="relative col-span-2 z-10" src="../../public/images/map-template.png"/>
                 </picture>
-                <div className="container z-10 min-w-[261px] min-h-[350px] bg-[#DBECF0] lg:mx-12 lg:min-h-auto">
+                <div className="container z-10 min-w-[261px] min-h-[350px] bg-[#DBECF0] lg:px-12 lg:min-h-auto">
                     <h1 className="text-xl font-bold p-2">Informasi</h1>
                 </div>
                 <div className="pr-20 col-start-4 lg:pr-0 lg:col-start-1">

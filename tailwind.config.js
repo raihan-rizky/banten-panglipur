@@ -42,7 +42,8 @@ export default withMT({
       'md-max': {'max': '1028px'},
       // => @media (max-width: 767px) { ... }
       'sm-max': {'max': '639px'},
-      'sm-min': {'min' : '639px'}
+      'sm-min': {'min' : '639px'},
+      'vs-max': {'max' : '415px'}
       // => @media (max-width: 639px) { ... }
     }
   },

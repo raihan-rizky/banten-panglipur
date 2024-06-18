@@ -5,8 +5,8 @@ import {
     Avatar,
   } from "@material-tailwind/react";
 const reviewCard = ( userName, userReview, index ) => {
-    let oddStyle = "container max-w-[658px]"
-    let evenStyle = "container max-w-[658px] translate-x-32"
+    let oddStyle = "max-w-[658px] lg:max-w-[558px]"
+    let evenStyle = "max-w-[658px] translate-x-32 lg:translate-x-0 lg:max-w-[558px]"
     return(
     <Card color="transparent" shadow={false} className={ index%2 == 0 ? evenStyle : oddStyle}>
       <CardHeader
@@ -36,9 +36,9 @@ const reviewCard = ( userName, userReview, index ) => {
 const ReviewContent = () => {
     return(<>
         <div className="flex flex-col justify-start container max-w-full h-auto bg-gradient-to-b from-white to-[#87C0CD]">
-            <picture className="flex container items-center pl-80">
-                <img src="../../public/images/comment-icon.png" className="w-[37.5px] h-[37.5px] grow-0"/>
-                <h1 className="pb-2 grow-1 pl-4 w-full font-[400] text-3xl ">Komentar</h1>
+            <picture className="flex container items-center pl-80 lg:pl-40">
+                <img src="../../public/images/comment-icon.png" className="w-[37.5px] h-[37.5px]"/>
+                <h1 className="pb-2 pl-4 w-full font-[400] text-3xl ">Komentar</h1>
             </picture>
             <div className="flex flex-col gap-6 mb-20">
             {reviewCard("Yana_Cooking18", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 1)}
