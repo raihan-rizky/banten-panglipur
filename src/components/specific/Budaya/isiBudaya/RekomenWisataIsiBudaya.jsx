@@ -81,7 +81,7 @@ const RekomenWisataIsiBudaya = () => {
         </div>
       )}
       >
-        <div className='flex mt-22 px-20 lg:flex-col sm-max:px-4 sm-max:gap-22 vs-max:gap-12  lg:gap-32 lg:translate-x-8 lg:transform'>
+        <div className='flex lg:flex-col sm-max:pr-20 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
                     {images.map((image,index) => (
                          
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
@@ -89,7 +89,7 @@ const RekomenWisataIsiBudaya = () => {
 
                     ))}
              </div>
-             <div className='flex lg:flex-col translate-x-6  lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
+             <div className='flex lg:flex-col sm-max:pr-10 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
                     {images2.map((image,index) => (
                         
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 

@@ -13,8 +13,8 @@ const AboutUs = () => {
                     </div>
                 </div>
                     <div className="container min-h-[808px] xl-max:ml-20 xl-max:p-0 xl-max:content-center pl-[149px] pb-[230px] absolute flex-col content-center xl-max:m-auto">
-                        <h1 className="max-w-[392px] min-h-[68px] font-[700] text-[50px]">Tentang Kami</h1>
-                        <p className="max-w-[498px] min-h-[200px] font-[400] text-[15px]">
+                        <h1 className="max-w-[392px] min-h-[68px] font-[700] text-[50px] md-max:text-3xl">Tentang Kami</h1>
+                        <p className="max-w-[498px] min-h-[200px] text-justify md-max:min-h-[270px] md-max:mr-20 font-[400] text-[15px] md-max:text-lg">
                         Kami adalah penjaga kekayaan budaya yang tak ternilai di Banten. 
                         Dengan komitmen yang kokoh, 
                         kami mempertahankan warisan berharga ini agar tetap hidup dan ber
@@ -32,7 +32,7 @@ const AboutUs = () => {
                         </div>
                     </div>
 
-                    <div className='container z-20 pl-[250px] pb-[120px] xl-max:pl-0 xl-max:mr-auto mr-0 min-w-[567px] min-h-[371px] content-center '>
+                    <div className='container z-20 pl-[250px] pb-[120px] xl-max:pl-0 xl-max:mr-auto mr-0 min-w-[567px] min-h-[371px] md-max:min-w-[367px] md-max:px-8 content-center '>
                         <img src='./public/images/about-us-img.png'/>
                     </div>
 

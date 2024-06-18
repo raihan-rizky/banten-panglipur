@@ -46,9 +46,9 @@ const DestinasiPilihan = () => {
   };
 
   return (
-    <div className='flex flex-col text-center container max-w-full min-h-[808px] [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
+    <div className='flex flex-col text-center container max-w-full min-h-[808px] mb-12 md-max:min-h-[505px] [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-100px),transparent_100%)] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
       <div className="container max-w-full mb-20">
-        <h1 className="text-[#242424] text-[40] font-extrabold">Destinasi Pilihan</h1>
+        <h1 className="text-[#242424] text-[40] font-extrabold md-max:text-3xl">Destinasi Pilihan</h1>
       </div>
       <div
         className="flex overflow-hidden space-x-6 w-full "
@@ -67,7 +67,7 @@ const DestinasiPilihan = () => {
         </div>
       </div>
       <div
-        className="mt-20 flex overflow-hidden space-x-6 w-full [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+        className="mt-20 flex overflow-hidden space-x-6 w-full [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-100px),transparent_100%)]"
         onMouseEnter={() => handleHoverStart(carouselRef2)}
         onMouseLeave={() => handleHoverEnd(carouselRef2)}
       >

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from 'react-router-dom';
-//buat event budaya
+//buat destinasi pilihan
 const ImageWithCaption = ({ imageSrc, caption, imageId }) => {
   const navigate = useNavigate();
   const handleImageClick = (contentId, imageSource) => {
@@ -8,11 +8,11 @@ const ImageWithCaption = ({ imageSrc, caption, imageId }) => {
   };
   return (
     <>
-    <div className="relative text-center text-white min-w-[398px] min-h-[122px] ">
+    <div className="relative md-max:min-w-[298px] vs-max:min-w-[198px] text-center text-white min-w-[398px] min-h-[122px] ">
       <img loading="lazy" src={imageSrc} alt={caption} 
       className="w-full h-auto rounded-lg " 
       onClick = {() => handleImageClick({imageId}, {imageSrc})}/>
-      <div className="container absolute min-h-14 font-[700] bottom-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-t from-black/60 to-transparent px-4 py-2 rounded-[20px]">
+      <div className="container md-max:text-xs md-max:font-medium md-max:min-h-10 absolute min-h-14 font-[700] bottom-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-t from-black/60 to-transparent px-4 py-2 rounded-[20px]">
         {caption}
       </div> 
     </div>
