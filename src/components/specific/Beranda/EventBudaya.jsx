@@ -3,7 +3,7 @@ import { Carousel, IconButton } from "@material-tailwind/react";
 const CardEventBudaya = ({ imageSrc, titleText, eventTime, mediaText, description, date }) =>{
     return(
         <>
-                <div className="container vs-max:max-w-[122px] sm-max:max-w-[172px] flex z-20 flex-col p-4 text-sm rounded-[10px] bg-white max-w-[222px] text-slate-500">
+                <div className="container vs-max:max-w-[122px] sm-max:max-w-[172px] flex z-20 flex-col p-4 text-sm rounded-[10px] bg-white hover:saturate-150 focus:border-blue-400 max-w-[222px] text-slate-500" data-aos='zoom-in'>
         <div className="text-sm pr-16 vs-max:text-xs vs-max:pr-0 text-[#5388AA]">{titleText}</div>
         <img
             loading="lazy"
@@ -43,10 +43,10 @@ const EventBudaya = () => {
                 </div>
                 <div className='absolute w-full justify-between xl-max:flex-col max-w-full min-h-[808px]'>
                     <div className='max-w-full'>
-                        <img className='absolute -top-20 -translate-x-60' src='./public/images/ellipse-pattern.png'/>
+                        <img className='relative -top-20 -left-[45rem] -translate-x-60 animate-spin-slow' data-aos='fade-down-right' src='./public/images/ellipse-pattern.png'/>
                     </div>
-                    <div className='overflow-auto'>
-                        <img className='absolute max-w-full right-12 translate-x-40 bottom-1/4 ' src='./public/images/ellipse-pattern.png'/>
+                    <div className='max-w-full'>
+                        <img className='relative -right-[45rem] bottom-56 animate-spin-slow ' data-aos='fade-up-left' src='./public/images/ellipse-pattern.png'/>
                     </div>
                 </div>
                 <Carousel transition={{ duration: 2 }} className="rounded-xl mb-10" prevArrow={({ handlePrev }) => (

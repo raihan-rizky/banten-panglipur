@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useRef } from "react";
+import Marquee from "react-fast-marquee";
 
 const reviewData = [
   {

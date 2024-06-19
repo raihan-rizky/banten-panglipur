@@ -2,31 +2,16 @@ import './App.css'
 import NavBar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import AppRoutes from './routes/AppRoutes'
+import AOS from 'aos'
+import { useEffect } from 'react'
+import 'aos/dist/aos.css'
 
 function App() {
-  const the_animation = document.querySelectorAll('.animation-left-right')
+  useEffect(()=> {
+    AOS.init({duration: 2000});
 
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        
-          if (entry.isIntersecting) {
-              entry.target.classList.add('scroll-animation-left-right')
-          }
-              else {
-                  entry.target.classList.remove('scroll-animation-left-right')
-              }
-          
-      })
-  },
-    { threshold: 0.5
-    });
-  //
-    for (let i = 0; i < the_animation.length; i++) {
-    const elements = the_animation[i];
-
-      observer.observe(elements);
-      console.log(elements);
-    } 
+}, []);
+  
   return (
     <>
       <NavBar></NavBar>

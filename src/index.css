@@ -11,31 +11,7 @@
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
 }
-.animation-left-right {
-  opacity: 0;
-  transform: translateX(-400px);
-  transition: all 0.7s ease-out;
-  transition-delay: 0.1s;
 
-}
-
-.scroll-animation-left-right {
-  opacity: 1;
-  transform: translateX(450px);
-}
-
-.animation-left-right {
-  opacity: 0;
-  transform: translateX(-400px);
-  transition: all 0.7s ease-out;
-  transition-delay: 0.1s;
-
-}
-
-.scroll-animation-left-right {
-  opacity: 1;
-  transform: translateX(450px);
-}
 
 }
 :root {
