@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
   return (
     <div
-      className={`sm:hidden fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${
+      className={`md-min:hidden fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('./public/images/navbar-pattern.png')] bg-slate-50 p-6">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-white bg-[url('./public/images/navbar-pattern.png')] bg-slate-50 p-6">
         <div className="flex justify-between items-center mb-6">
           <div className="ml-12 min-w-[100px] min-h-[46px]">
             <img src="../../public/images/logo-banten-panglipur.png" alt="logo" />
@@ -18,7 +18,7 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
             <ion-icon name="close" aria-hidden="true" size="large"></ion-icon>
           </div>
         </div>
-        <ul className="flex flex-col gap-y-10 mt-12 text-3xl text-[#242424] font-bold">
+        <ul className="flex flex-col gap-y-10 mt-12 text-2xl text-[#242424] font-bold">
           <li>Register</li>
           <li>Login</li>
           {Links.map((link) => (
@@ -27,7 +27,7 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
               style={({ isActive, isTransitioning }) => {
                 return {
                   fontWeight: isActive ? "extra-bold" : "",
-                  color: isActive ? "white" : "black",
+                  color: isActive ? "gray" : "black",
                   viewTransitionName: isTransitioning ? "slide" : "",
                 };
               }}  
@@ -80,8 +80,8 @@ export default function NavBar() {
             ))}
           </ul>
         </div>
-        <div onClick={toggleMenu} className="flex cursor-pointer md-min:hidden grow">
-          <ion-icon className="self-end" name={isOpen ? "close" : "menu"} aria-hidden="true" size="large"></ion-icon>
+        <div onClick={toggleMenu} className="container position-relative flex cursor-pointer md-min:hidden grow">
+          <ion-icon className="" name={isOpen ? "close" : "menu"} aria-hidden="true" size="large"></ion-icon>
         </div>
         <div className="flex items-center gap-x-6 max-h-full mr-24 md-min:mr-0">
           <button className="md-max:hidden lg:block rounded-[15px] border-1 bg-transparent border-solid border-black font-bold text-[15px] px-[30px] py-[7px]">

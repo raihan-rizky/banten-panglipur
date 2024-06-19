@@ -6,7 +6,7 @@ const AboutUs = () => {
                 <div className="overflow-hidden xl-max:flex-col xl-max:items-center -translate-y-2 relative flex max-w-full min-h-[808px] bg-gradient-to-b from-[#87C0CD] to-white">
                 <div className='justify-between xl-max:flex-col max-w-full min-h-[808px]'>
                     <div className='max-w-full'>
-                        <img className='absolute -translate-x-[650px] translate-y-[190px]' src='./public/images/ellipse-pattern.png'/>
+                        <img className='absolute -translate-x-[350px] translate-y-[190px]' src='./public/images/ellipse-pattern.png'/>
                     </div>
                     <div className='overflow-auto'>
                         <img className='absolute rotate-180 max-w-full translate-x-[1000px] ' src='./public/images/ellipse-pattern.png'/>

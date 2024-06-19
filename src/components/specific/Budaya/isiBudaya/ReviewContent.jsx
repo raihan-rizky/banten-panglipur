@@ -56,9 +56,9 @@ const ReviewContent = () => {
             </picture>
             <div className="flex flex-col gap-6 vs-max:gap-2 mb-20">
             {reviewCard("Nama User", reviewForm, 1)}
-            {reviewCard("Yana_Cooking18", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 2)}
-            {reviewCard("Yemima_je", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 3)}
-            {reviewCard("Ahsani21_", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 4)}
+            {reviewCard("Yana_Cooking18", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 1)}
+            {reviewCard("Yemima_je", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 2)}
+            {reviewCard("Ahsani21_", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 3)}
             </div>
         </div>
     </>)

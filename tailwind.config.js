@@ -14,6 +14,8 @@ export default withMT({
         "infinite-scroll": "infinite-scroll 50s linear infinite",
         "infinite-scroll-reverse": "infinite-scroll-reverse 50s linear infinite",
         "infinite-scroll-fast": "infinite-scroll-fast 50s linear infinite",
+        "animation-left-right": "animation-left-right opacity-0 all 0.7s ease-out",
+        "scroll-animation-left-right": "scroll-animation-left-right opacity-100"
       },
       keyframes: {
         "infinite-scroll": {
@@ -28,6 +30,14 @@ export default withMT({
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-216px * 6))" }, // Fixed typo here
         },
+        "animation-left-right": {
+          from: {transform: "translateX(100%)"},
+          to: { transform: "translateX(0)"}
+        },
+        "scroll-animation-left-right": {
+          from: { transform: "translateX(0)"},
+          to: {transform: "translateX(100%)"}
+        }
       },
     },
     screens: {
