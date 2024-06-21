@@ -14,6 +14,7 @@ export default withMT({
         "infinite-scroll": "infinite-scroll 50s linear infinite",
         "infinite-scroll-reverse": "infinite-scroll-reverse 50s linear infinite",
         "infinite-scroll-fast": "infinite-scroll-fast 50s linear infinite",
+        'spin-slow': 'spin 40s linear infinite',
       },
       keyframes: {
         "infinite-scroll": {
@@ -42,7 +43,8 @@ export default withMT({
       'md-max': {'max': '1028px'},
       // => @media (max-width: 767px) { ... }
       'sm-max': {'max': '639px'},
-      'sm-min': {'min' : '639px'}
+      'sm-min': {'min' : '639px'},
+      'vs-max': {'max' : '415px'}
       // => @media (max-width: 639px) { ... }
     }
   },

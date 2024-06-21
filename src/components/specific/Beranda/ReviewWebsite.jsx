@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useRef } from "react";
+import Marquee from "react-fast-marquee";
 
 const reviewData = [
   {
@@ -68,22 +69,22 @@ const ReviewWebsite = () => {
 
   return (
     <>
-      <div className='container w-full bg-white min-h-[641px] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
+      <div className='container bg-white min-h-[641px] [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-100px),transparent_100%)] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
         <div className="flex flex-col">
-          <div className="text-3xl font-bold text-center mt-20 mb-20 text-black md:max-w-full">
+          <div className="text-3xl font-extrabold text-center mt-20 mb-20 text-black md:max-w-full">
             Apa yang Orang Pikirkan Tentang Kami ?
           </div>
           <div
             onMouseEnter={() => handleHoverStart(carouselRef)}
             onMouseLeave={() => handleHoverEnd(carouselRef)}
-            className="flex lg:grid-cols-2 lg:grid no-scrollbar overflow-x-auto mt-40 w-full md:flex-wrap md:mt-10 md:max-w-full relative"
+            className="flex lg:grid-cols-2 lg:grid no-scrollbar overflow-x-auto mt-40 sm-max:mt-2 w-full md:flex-wrap md:mt-10 md:max-w-full relative"
           >
             <div
               ref={carouselRef}
               className="flex gap-5 justify-between animate-infinite-scroll-fast"
             >
               {infiniteData.map((review, index) => (
-                <div key={index} className="">
+                <div key={index} className="md-max:w-1/2">
                   <ReviewCard
                     name={review.name}
                     company={review.company}
@@ -92,8 +93,6 @@ const ReviewWebsite = () => {
                 </div>
               ))}
             </div>
-            <div className="absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white via-white/75 to-transparent pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white via-white/75 to-transparent pointer-events-none"></div>
           </div>
         </div>
       </div>

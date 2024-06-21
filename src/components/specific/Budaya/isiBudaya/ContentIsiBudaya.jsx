@@ -2,9 +2,9 @@
 const ContentIsiBudaya = () => {
     return(
         <>
-        <div className="container px-52 max-w-[793px]w-full h-auto mb-20">
-            <h1 className="text-3xl font-bold">Sub Judul</h1>
-            <section className="text-xl text-justify ">
+        <div className="container px-22 max-w-[793px] h-auto mb-20 lg:px-24 sm-max:px-16">
+            <h1 className="text-3xl font-bold sm-max:text-xl">Sub Judul</h1>
+            <section className="text-xl text-left sm-max:text-lg ">
                 <p>Lorem Ipsum is simply dummy text of the printing and 
                     typesetting industry. Lorem Ipsum has been the industry's 
                     standard dummy text ever since the 1500s, when an unknown 

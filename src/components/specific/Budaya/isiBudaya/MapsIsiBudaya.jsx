@@ -1,3 +1,5 @@
+import Marquee from "react-fast-marquee";
+
 const MapIsiBudaya = () => {
     return (
         <>
@@ -16,11 +18,11 @@ const MapIsiBudaya = () => {
                 <picture className="col-span-2 lg:col-span-1">
                     <img className="relative col-span-2 z-10" src="../../public/images/map-template.png"/>
                 </picture>
-                <div className="container z-10 min-w-[261px] min-h-[350px] bg-[#DBECF0] lg:mx-12 lg:min-h-auto">
+                <div className="container z-10 sm-max:max-w-[400px] min-w-[261px] min-h-[350px] bg-[#DBECF0] lg:px-12 lg:min-h-auto">
                     <h1 className="text-xl font-bold p-2">Informasi</h1>
                 </div>
                 <div className="pr-20 col-start-4 lg:pr-0 lg:col-start-1">
-                <picture className="flex flex-col gap-8 py-10 max-w-full w-1/4 h-auto lg:w-full lg:flex-row lg:justify-center">
+                <picture className="flex flex-col gap-8 py-10 vs-max:gap-4 max-w-full w-1/4 h-auto lg:w-full lg:flex-row lg:justify-center">
                     <img className="max-w-[109px] max-h-[52px] aspect-video" src='../../public/images/map-icon.png'/>
                     <img className="max-w-[109px] max-h-[52px] aspect-video" src='../../public/images/share-icon.png'/>
                     <img className="max-w-[109px] max-h-[52px] aspect-video" src='../../public/images/save-icon.png'/>

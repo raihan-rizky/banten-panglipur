@@ -19,14 +19,14 @@ const RekomenWisataIsiBudaya = () => {
         <>
             <div className='container relative max-w-full h-auto'>
                 <h1 className='font-bold text-3xl text-center mb-20'>Rekomendasi Wisata</h1>
-            <div className='container max-w-full h-auto px-40'>
-            <Carousel transition={{ duration: 1 }} className="rounded-xl lg:min-h-[750px] container min-h-[228px] max-h-full" prevArrow={({ handlePrev }) => (
+            <div className='container max-w-full h-auto px-40 lg:px-20 md-max:px-0'>
+            <Carousel transition={{ duration: 1 }} className="rounded-xl lg:min-h-[750px] vs-max:min-h-[510px] container min-h-[228px]" prevArrow={({ handlePrev }) => (
         <IconButton
           variant="text"
           color="black"
           size="lg"
           onClick={handlePrev}
-          className="!absolute top-2/4 left-4 -translate-y-2/4"
+          className="!absolute top-2/4 left-4 -translate-y-2/4 vs-max:w-8 vs-max:h-8"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const RekomenWisataIsiBudaya = () => {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="#5388AA"
-            className="h-6 w-6"
+            className="h-6 w-6 vs-max:w-5"
           >
             <path
               strokeLinecap="round"
@@ -50,7 +50,7 @@ const RekomenWisataIsiBudaya = () => {
           color="black"
           size="lg"
           onClick={handleNext}
-          className="!absolute top-2/4 !right-4 -translate-y-2/4"
+          className="!absolute top-2/4 !right-4 -translate-y-2/4 vs-max:w-8 vs-max:h-8"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ const RekomenWisataIsiBudaya = () => {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="#5388AA"
-            className="h-6 w-6"
+            className="h-6 w-6 vs-max:w-5"
           >
             <path
               strokeLinecap="round"
@@ -81,7 +81,7 @@ const RekomenWisataIsiBudaya = () => {
         </div>
       )}
       >
-        <div className='flex mt-22 px-20 lg:flex-col  lg:gap-32 lg:translate-x-8 lg:transform'>
+        <div className='flex lg:flex-col sm-max:pr-20 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
                     {images.map((image,index) => (
                          
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
@@ -89,7 +89,7 @@ const RekomenWisataIsiBudaya = () => {
 
                     ))}
              </div>
-             <div className='flex lg:flex-col translate-x-6  lg:gap-32 lg:translate-x-8 lg:transform mt-22 px-20'>
+             <div className='flex lg:flex-col sm-max:pr-10 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
                     {images2.map((image,index) => (
                         
                         <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption} 
