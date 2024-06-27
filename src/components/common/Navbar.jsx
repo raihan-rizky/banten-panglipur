@@ -1,6 +1,8 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
+import  RegistrationForm  from "./RegistrationForm";
+import LoginForm from "./LoginForm";
 
 const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
   return (
@@ -19,10 +21,10 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
           </div>
         </div>
         <ul className="flex flex-col gap-y-10 mt-12 text-2xl text-[#242424] font-bold">
-          <li>Register</li>
-          <li>Login</li>
+          <li onClick={() => setShowForm(true)}>Register</li>
+          <li onClick={() => setShowForm(true)}>Login</li>
           {Links.map((link) => (
-            <li key={link.name} className="text-[#242424]">
+            <li key={link.name} className="text-[#242424]" >
               <NavLink to={link.link} 
               style={({ isActive, isTransitioning }) => {
                 return {
@@ -50,13 +52,26 @@ export default function NavBar() {
     { name: "Budaya", link: "/budaya" },
   ];
   let [isOpen, setOpen] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+  const [showLoginForm, setShowLoginForm] = useState(false);
 
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
+  const handleLoginClick = () => {
+    setShowRegisterForm(false);
+    setShowLoginForm(true);
+};
+
+const handleSignUpClick = () => {
+    setShowLoginForm(false);
+    setShowRegisterForm(true);
+};
+
 
   return (
     <>
+    
       <nav className="relative z-10 flex font-sans max-w-full min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
         <div className="ml-12 min-w-[130px] min-h-[46px]">
           <img src="./public/images/logo-banten-panglipur.png" alt="logo" />
@@ -84,15 +99,18 @@ export default function NavBar() {
           <ion-icon className="" name={isOpen ? "close" : "menu"} aria-hidden="true" size="large"></ion-icon>
         </div>
         <div className="flex items-center gap-x-6 max-h-full mr-24 md-min:mr-0">
-          <button className="md-max:hidden lg:block rounded-[15px] border-1 bg-transparent border-solid border-black font-bold text-[15px] px-[30px] py-[7px]">
+          <button onClick={() => setShowRegisterForm(true)} className="md-max:hidden lg:block rounded-[15px] border-1 bg-transparent border-solid border-black font-bold text-[15px] px-[30px] py-[7px]">
             Registrasi
           </button>
-          <button className="md-max:hidden lg:block rounded-[15px] border-1 bg-[#226597] text-[#F3F9FB] font-bold text-[15px] px-[30px] py-[7px]">
+          <button onClick={() => setShowLoginForm(true)} className="md-max:hidden lg:block rounded-[15px] border-1 bg-[#226597] text-[#F3F9FB] font-bold text-[15px] px-[30px] py-[7px]">
             Masuk
           </button>
         </div>
       </nav>
       <MobileMenu isOpen={isOpen} toggleMenu={toggleMenu} Links={Links} />
+      <RegistrationForm isVisible={showRegisterForm} onClose={() => setShowRegisterForm(false)}  onLoginClick={handleLoginClick} />
+      <LoginForm isVisible={showLoginForm} onClose={() => setShowLoginForm(false)}  onSignUpClick={handleSignUpClick}/>
+        
     </>
   );
 }
