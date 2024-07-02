@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FunnelIcon } from '@heroicons/react/24/outline'; // Menggunakan icon filter
 
 const VerticalCard = ({ title, description, image }) => {
@@ -13,7 +13,6 @@ const VerticalCard = ({ title, description, image }) => {
     );
 }
 
-
 const VerticalCardList = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -26,12 +25,12 @@ const VerticalCardList = () => {
         {
             title: "Card 2",
             description: "Description for Card 2",
-            image: "/images/budaya-suling.png"
+            image: "/images/rampak-bedug.png"
         },
         {
             title: "Card 3",
             description: "Description for Card 3",
-            image: "/images/budaya-suling.png"
+            image: "/images/silat.png"
         },
     ];
 
@@ -40,8 +39,13 @@ const VerticalCardList = () => {
         card.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const containerStyle = {
+        backgroundImage: "url('/images/pattern-destinasi-pilihan.png')",
+        backgroundRepeat: 'repeat',
+    };
+
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center" style={containerStyle}>
             <div className="flex items-center mb-5">
                 <div className="bg-white border border-black w-[500px] flex items-center rounded-lg">
                     <input
@@ -56,6 +60,7 @@ const VerticalCardList = () => {
                     <FunnelIcon className="h-5 w-5" />
                 </button>
             </div>
+            <h2 className="text-2xl font-bold mb-5">Rekomendasi Budaya</h2>
             {filteredCards.map((card, index) => (
                 <VerticalCard
                     key={index}
