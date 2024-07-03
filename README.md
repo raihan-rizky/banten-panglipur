@@ -1,4 +1,4 @@
-# banten-panglipur
+# Banten-Panglipur
 Banten Panglipur is an online platform that aims to showcase, preserve, and promote the rich cultural heritage of the Banten region in Indonesia. The website serves as a comprehensive resource for information and insights into the unique traditions, customs, arts, cuisine, and history of the Banten people.
 
 * User object
@@ -168,7 +168,8 @@ Banten Panglipur is an online platform that aims to showcase, preserve, and prom
 - **Body JSON:**
 ```json
 {
-   {<request_object>},
+   "password": "",
+   "image_profile": ""
 }
 ```
 #### Success Response:
