@@ -1,7 +1,7 @@
 # Banten-Panglipur
 Banten Panglipur is an online platform that aims to showcase, preserve, and promote the rich cultural heritage of the Banten region in Indonesia. The website serves as a comprehensive resource for information and insights into the unique traditions, customs, arts, cuisine, and history of the Banten people.
 
-[Backend Repository](https://github.com/your-repo-link](https://github.com/muhamadfaizriyadi17/backend-api-capstone-bdt)
+[##Backend Repository##] (https://github.com/your-repo-link](https://github.com/muhamadfaizriyadi17/backend-api-capstone-bdt)
 
 * User object
 ```
