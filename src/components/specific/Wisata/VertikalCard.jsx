@@ -3,9 +3,9 @@ import { FunnelIcon } from '@heroicons/react/24/outline'; // Menggunakan icon fi
 
 const VerticalCard = ({ title, description, image }) => {
     return (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row mb-5" style={{ height: '150px', width: '800px' }}>
-            <img className="w-full md:w-1/3 h-48 md:h-full object-cover" src={image} alt={title} />
-            <div className="p-4 flex flex-col justify-center w-full md:w-2/3">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col sm:flex-row mb-5 w-full max-w-3xl">
+            <img className="w-full sm:w-1/3 h-48 sm:h-auto object-cover" src={image} alt={title} />
+            <div className="p-4 flex flex-col justify-center w-full sm:w-2/3">
                 <h2 className="text-xl font-bold mb-2 truncate">{title}</h2>
                 <p className="text-gray-700 text-base truncate">{description}</p>
             </div>
@@ -46,8 +46,8 @@ const VerticalCardList = () => {
 
     return (
         <div className="flex flex-col items-center" style={containerStyle}>
-            <div className="flex items-center mb-5">
-                <div className="bg-white border border-black w-[500px] flex items-center rounded-lg">
+            <div className="flex items-center mb-5 w-full sm:w-auto px-4 sm:px-0">
+                <div className="bg-white border border-black w-full sm:w-[500px] flex items-center rounded-lg">
                     <input
                         type="text"
                         placeholder="Search..."
@@ -60,16 +60,18 @@ const VerticalCardList = () => {
                     <FunnelIcon className="h-5 w-5" />
                 </button>
             </div>
-            <h2 className="text-2xl font-bold mb-5">Rekomendasi Wisata</h2>
-            {filteredCards.map((card, index) => (
-                <VerticalCard
-                    key={index}
-                    title={card.title}
-                    description={card.description}
-                    image={card.image}
-                />
-            ))}
-            <hr className="w-[1000px]" style={{ height: '5px', backgroundColor: 'black', borderRadius: '50px' }} />
+            <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">Rekomendasi Wisata</h2>
+            <div className="flex flex-col items-center w-full px-4">
+                {filteredCards.map((card, index) => (
+                    <VerticalCard
+                        key={index}
+                        title={card.title}
+                        description={card.description}
+                        image={card.image}
+                    />
+                ))}
+            </div>
+            <hr className="w-full sm:w-[1000px] mt-5" style={{ height: '5px', backgroundColor: 'black', borderRadius: '50px' }} />
         </div>
     );
 }

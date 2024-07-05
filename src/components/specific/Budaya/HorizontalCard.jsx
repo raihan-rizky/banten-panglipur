@@ -40,9 +40,9 @@ const CardsContainer = () => {
     ];
 
     return (
-        <div className="max-w-[1200px] mx-auto my-10 text-center">
+        <div className="max-w-[1200px] mx-auto my-10 text-center px-4">
             <h2 className="text-2xl font-bold mb-5">Budaya Lainnya</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {cardsData.map((card, index) => (
                     <div key={index} className="my-2">
                         <HorizontalCard
