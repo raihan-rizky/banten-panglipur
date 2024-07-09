@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
-import { NavLink } from "react-router-dom";
-import  RegistrationForm  from "./RegistrationForm";
+import { NavLink, useLocation } from "react-router-dom";
+import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
 
 const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
   return (
     <div
-      className={`md-min:hidden fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className={`md-min:hidden fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
     >
       <div className="absolute top-0 right-0 w-1/2 h-full bg-white bg-[url('./public/images/navbar-pattern.png')] bg-slate-50 p-6">
         <div className="flex justify-between items-center mb-6">
@@ -25,15 +24,15 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
           <li onClick={() => setShowForm(true)}>Login</li>
           {Links.map((link) => (
             <li key={link.name} className="text-[#242424]" >
-              <NavLink to={link.link} 
-              style={({ isActive, isTransitioning }) => {
-                return {
-                  fontWeight: isActive ? "extra-bold" : "",
-                  color: isActive ? "gray" : "black",
-                  viewTransitionName: isTransitioning ? "slide" : "",
-                };
-              }}  
-              className="text-[#242424]">
+              <NavLink to={link.link}
+                style={({ isActive, isTransitioning }) => {
+                  return {
+                    fontWeight: isActive ? "extra-bold" : "",
+                    color: isActive ? "gray" : "black",
+                    viewTransitionName: isTransitioning ? "slide" : "",
+                  };
+                }}
+                className="text-[#242424]">
                 {link.name}
               </NavLink>
             </li>
@@ -44,7 +43,7 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
   );
 };
 
-export default function NavBar() {
+const NavBar = () => {
   let Links = [
     { name: "Beranda", link: "/" },
     { name: "Profile", link: "/profile" },
@@ -54,25 +53,30 @@ export default function NavBar() {
   let [isOpen, setOpen] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scrolls to the top when location (route) changes
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
+
   const handleLoginClick = () => {
     setShowRegisterForm(false);
     setShowLoginForm(true);
-};
+  };
 
-const handleSignUpClick = () => {
+  const handleSignUpClick = () => {
     setShowLoginForm(false);
     setShowRegisterForm(true);
-};
-
+  };
 
   return (
     <>
-    
-      <nav className="relative z-10 flex font-sans max-w-full min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
+      <nav className="fixed z-10 top-0 left-0 right-0 flex font-sans min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
         <div className="ml-12 min-w-[130px] min-h-[46px]">
           <img src="./public/images/logo-banten-panglipur.png" alt="logo" />
         </div>
@@ -80,15 +84,15 @@ const handleSignUpClick = () => {
           <ul className="h-6 w-6 flex gap-x-12 max-w-full items-center">
             {Links.map((link) => (
               <li key={link.name} className="text-[#242424]">
-                <NavLink to={link.link} 
-                style={({ isActive, isTransitioning }) => {
-                  return {
-                    fontWeight: isActive ? "extra-bold" : "",
-                    color: isActive ? "white" : "black",
-                    viewTransitionName: isTransitioning ? "slide" : "",
-                  };
-                }}
-                 className="text-[#242424]">
+                <NavLink to={link.link}
+                  style={({ isActive, isTransitioning }) => {
+                    return {
+                      fontWeight: isActive ? "extra-bold" : "",
+                      color: isActive ? "#226597" : "black",
+                      viewTransitionName: isTransitioning ? "slide" : "",
+                    };
+                  }}
+                  className="text-[#242424]">
                   {link.name}
                 </NavLink>
               </li>
@@ -108,13 +112,11 @@ const handleSignUpClick = () => {
         </div>
       </nav>
       <MobileMenu isOpen={isOpen} toggleMenu={toggleMenu} Links={Links} />
-      <RegistrationForm isVisible={showRegisterForm} onClose={() => setShowRegisterForm(false)}  onLoginClick={handleLoginClick} />
-      <LoginForm isVisible={showLoginForm} onClose={() => setShowLoginForm(false)}  onSignUpClick={handleSignUpClick}/>
-        
+      <RegistrationForm isVisible={showRegisterForm} onClose={() => setShowRegisterForm(false)} onLoginClick={handleLoginClick} />
+      <LoginForm isVisible={showLoginForm} onClose={() => setShowLoginForm(false)} onSignUpClick={handleSignUpClick} />
     </>
   );
 }
-
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
@@ -126,3 +128,5 @@ MobileMenu.propTypes = {
     })
   ).isRequired,
 };
+
+export default NavBar;
