@@ -1,12 +1,10 @@
 import HeroInPageBudaya from "../../components/specific/Budaya/HeroInPageBudaya";
-import VertikalCard from "../../components/specific/Budaya/VertikalCard";
-import HorizontalCard from "../../components/specific/Budaya/HorizontalCard";
+import CombinedCardComponent from "../../components/specific/Budaya/CardContainer";
 
 const Budaya = () => {
     return (<>
         <HeroInPageBudaya></HeroInPageBudaya>
-        <VertikalCard></VertikalCard>
-        <HorizontalCard></HorizontalCard>
+        <CombinedCardComponent></CombinedCardComponent>
     </>)
 }
 export default Budaya;
