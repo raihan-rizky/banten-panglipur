@@ -1,7 +1,6 @@
-// src/component/common/RegistrationForm.jsx
 import React, { useState } from 'react';
 import { Card, Input, Checkbox, Button, Typography, IconButton } from "@material-tailwind/react";
-import { supabase } from '../../supabaseClient';
+import { supabase } from '../../services/supabaseClient';
 
 export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
   if (!isVisible) return null;
@@ -9,6 +8,7 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State untuk pesan sukses
 
   const handleClose = (e) => {
     if (e.target.id === 'wrapperRegis') onClose();
@@ -27,15 +27,30 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
         console.error('Error signing up:', error.message);
       } else {
         console.log('User signed up successfully:', user);
-        // Tambahkan logika navigasi atau tindakan setelah registrasi berhasil
+
+        // Simpan nama pengguna ke tabel profiles
+        const { data, error: profileError } = await supabase
+          .from('profiles')
+          .insert([{ id: user.id, name }]);
+
+        if (profileError) {
+          console.error('Error saving profile:', profileError.message);
+        } else {
+          setShowSuccessMessage(true); // Tampilkan pesan sukses
+        }
       }
     } catch (error) {
       console.error('Error signing up:', error.message);
     }
   }
 
+  const handleSuccessClose = () => {
+    setShowSuccessMessage(false);
+    onLoginClick(); // Arahkan ke halaman login
+  }
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm z-[999] p-10 vs-max:p-5  pb-0" onClick={handleClose} id="wrapperRegis">
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm z-[999] p-10 vs-max:p-5 pb-0" onClick={handleClose} id="wrapperRegis">
       <div className="container max-w-[500px] max-h-[630px] vs-max:max-h-[590px] p-5 pt-4 vs-max:pt-1 rounded-lg bg-white">
         <Card color="transparent" shadow={false}>
           <IconButton ripple={true} color="red" size="sm" className="rounded-lg self-end translate-x-6" onClick={() => onClose()}>
@@ -120,6 +135,18 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
           </form>
         </Card>
       </div>
+      {showSuccessMessage && (
+        <div className="fixed inset-0 flex items-center justify-center z-[1000]">
+          <div className="bg-white p-5 rounded-lg shadow-lg text-center">
+            <Typography variant="h6" color="green">
+              Registrasi berhasil, silahkan login.
+            </Typography>
+            <Button onClick={handleSuccessClose} color="blue" className="mt-4">
+              OK
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
