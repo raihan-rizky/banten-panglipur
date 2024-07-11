@@ -4,6 +4,7 @@ import IsiBudaya from '../views/templates/TemplateCreator';
 import ProfileWeb from '../views/pages/ProfileWeb';
 import Wisata from '../views/pages/Wisata';
 import Budaya from '../views/pages/Budaya';
+// import Favorite from '../views/templates/Favorite'
 
 
 const AppRoutes = () => {
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path='/profile' element={<ProfileWeb />}></Route>
       <Route path='/wisata' element={<Wisata />}></Route>
       <Route path='/Budaya' element={<Budaya />}></Route>
+      {/* <Route path='/Favorite' element={<Favorite />}></Route> */}
     </Routes>
   )
 }
