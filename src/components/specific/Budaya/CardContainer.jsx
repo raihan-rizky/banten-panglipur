@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FunnelIcon } from '@heroicons/react/24/outline';
 
 const VerticalCard = ({ title, description, image }) => {
+    // Function to truncate description to the first 10 words
+    const truncateDescription = (str, numWords) => {
+        const words = str.split(' ');
+        if (words.length <= numWords) {
+            return str;
+        }
+        return words.slice(0, numWords).join(' ') + '...';
+    };
+
     return (
         <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col sm:flex-row mb-5 w-full max-w-3xl">
-            <img className="w-full sm:w-1/3 h-48 sm:h-auto object-cover" src={image} alt={title} />
+            <img className="w-full sm:w-1/3 h-48 sm:h-auto object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
             <div className="p-4 flex flex-col justify-center w-full sm:w-2/3">
                 <h2 className="text-xl font-bold mb-2 truncate">{title}</h2>
-                <p className="text-gray-700 text-base truncate">{description}</p>
+                <p className="text-gray-700 text-base truncate">{truncateDescription(description, 10)}</p>
             </div>
         </div>
     );
@@ -16,7 +26,7 @@ const VerticalCard = ({ title, description, image }) => {
 const HorizontalCard = ({ title, image }) => {
     return (
         <div className="relative bg-white shadow-lg rounded-lg overflow-hidden">
-            <img className="w-full h-48 object-cover" src={image} alt={title} />
+            <img className="w-full h-48 object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
             <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
                 <h2 className="text-xl font-bold text-center">{title}</h2>
             </div>
@@ -26,60 +36,37 @@ const HorizontalCard = ({ title, image }) => {
 
 const CombinedCardComponent = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [places, setPlaces] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const verticalCards = [
-        {
-            title: "Card 1",
-            description: "Description for Card 1",
-            image: "/images/budaya-suling.png"
-        },
-        {
-            title: "Card 2",
-            description: "Description for Card 2",
-            image: "/images/rampak-bedug.png"
-        },
-        {
-            title: "Card 3",
-            description: "Description for Card 3",
-            image: "/images/silat.png"
-        },
-    ];
+    useEffect(() => {
+        const fetchPlaces = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/places');
+                console.log(response.data);
+                if (response.data && response.data.places) {
+                    setPlaces(response.data.places);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching places:', error);
+                setLoading(false);
+            }
+        };
 
-    const horizontalCards = [
-        {
-            title: 'Card 4',
-            image: '/images/budaya-suling.png',
-        },
-        {
-            title: 'Card 5',
-            image: '/images/budaya-suling.png',
-        },
-        {
-            title: 'Card 6',
-            image: '/images/budaya-suling.png',
-        },
-        {
-            title: 'Card 7',
-            image: '/images/budaya-suling.png',
-        },
-        {
-            title: 'Card 8',
-            image: '/images/budaya-suling.png',
-        },
-        {
-            title: 'Card 9',
-            image: '/images/budaya-suling.png',
-        },
-    ];
+        fetchPlaces();
+    }, []);
 
-    const filteredVerticalCards = verticalCards.filter(card =>
-        card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        card.description.toLowerCase().includes(searchTerm.toLowerCase())
+    // Filter places by category 'Pariwisata' and search term
+    const filteredPlaces = places.filter(card =>
+        card.category === 'Budaya' &&
+        card.place_name && card.place_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        card.description && card.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const filteredHorizontalCards = horizontalCards.filter(card =>
-        card.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    // Slice first 3 items for vertical cards and rest for horizontal cards
+    const filteredVerticalCards = filteredPlaces.slice(0, 3);
+    const filteredHorizontalCards = filteredPlaces.slice(3);
 
     const containerStyle = {
         backgroundImage: "url('/images/pattern-destinasi-pilihan.png')",
@@ -112,16 +99,9 @@ const CombinedCardComponent = () => {
                         {filteredVerticalCards.map((card, index) => (
                             <VerticalCard
                                 key={index}
-                                title={card.title}
+                                title={card.place_name}
                                 description={card.description}
-                                image={card.image}
-                            />
-                        ))}
-                        {filteredHorizontalCards.map((card, index) => (
-                            <HorizontalCard
-                                key={index}
-                                title={card.title}
-                                image={card.image}
+                                image={card.image_place}
                             />
                         ))}
                     </div>
@@ -130,12 +110,12 @@ const CombinedCardComponent = () => {
                 <>
                     <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">Rekomendasi Budaya</h2>
                     <div className="flex flex-col items-center w-full px-4">
-                        {verticalCards.map((card, index) => (
+                        {filteredVerticalCards.map((card, index) => (
                             <VerticalCard
                                 key={index}
-                                title={card.title}
+                                title={card.place_name}
                                 description={card.description}
-                                image={card.image}
+                                image={card.image_place}
                             />
                         ))}
                     </div>
@@ -144,11 +124,11 @@ const CombinedCardComponent = () => {
                     <div className="max-w-[1200px] mx-auto my-10 text-center px-4">
                         <h2 className="text-2xl font-bold mb-5">Budaya Lainnya</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            {horizontalCards.map((card, index) => (
+                            {filteredHorizontalCards.map((card, index) => (
                                 <div key={index} className="my-2">
                                     <HorizontalCard
-                                        title={card.title}
-                                        image={card.image}
+                                        title={card.place_name}
+                                        image={card.image_place}
                                     />
                                 </div>
                             ))}
