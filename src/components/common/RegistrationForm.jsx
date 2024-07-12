@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Input, Checkbox, Button, Typography, IconButton } from "@material-tailwind/react";
-import { supabase } from '../../services/supabaseClient';
+import { supabase } from '../../supabaseClient';
 
 export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
   if (!isVisible) return null;
