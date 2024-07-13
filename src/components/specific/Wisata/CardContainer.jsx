@@ -108,7 +108,7 @@ const CombinedCardComponent = () => {
                 </div>
             ) : (
                 <>
-                    <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">Rekomendasi Budaya</h2>
+                    <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">Rekomendasi Wisata</h2>
                     <div className="flex flex-col items-center w-full px-4">
                         {filteredVerticalCards.map((card, index) => (
                             <VerticalCard
@@ -122,7 +122,7 @@ const CombinedCardComponent = () => {
                     <hr className="w-full sm:w-[1000px] mt-5" style={{ height: '5px', backgroundColor: 'black', borderRadius: '50px' }} />
 
                     <div className="max-w-[1200px] mx-auto my-10 text-center px-4">
-                        <h2 className="text-2xl font-bold mb-5">Budaya Lainnya</h2>
+                        <h2 className="text-2xl font-bold mb-5">Wisata Lainnya</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                             {filteredHorizontalCards.map((card, index) => (
                                 <div key={index} className="my-2">
