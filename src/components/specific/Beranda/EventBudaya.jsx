@@ -62,7 +62,7 @@ const EventBudaya = () => {
 
   return (
     <div className="container relative overflow-hidden max-w-full min-h-[597px] bg-gradient-to-b from-white to-[#87C0CD] ">
-      <div className="container w-full text-center mb-12">
+      <div className="container w-full text-center">
         <h1 className="font-extrabold md-max:text-3xl mt-20">Event Budaya</h1>
       </div>
       <Carousel transition={{ duration: 2 }} className="rounded-xl mb-10" prevArrow={({ handlePrev }) => (

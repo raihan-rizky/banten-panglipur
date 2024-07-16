@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <>
       <div className="relative -translate-y-[76px] max-w-full min-h-[714px]">
-        <div className="absolute w-full translate-y-20 z-10 min-h-[732px] bg-[url('./public/images/hero-pattern.png')]">
+        <div className="absolute w-full translate-y-20 z-10 min-h-[732px] bg-[url('/images/hero-pattern.png')]">
         </div>
         <div className="container flex flex-col min-h-[732px] ml-0 pt-[330px] pl-[143px] md-max:pl-[40px] md-max:text-left">
           <h1 className=" z-20 max-w-[442px] md-max:pr-20 md-max:text-3xl min-h-[144px] md-max:min-h-[100px] text-white text-[48px] font-bold">Menyatu Budaya Wisatawan Dunia</h1>

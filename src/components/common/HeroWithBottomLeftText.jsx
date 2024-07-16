@@ -7,7 +7,7 @@ const HeroWithBottomLeftText = ({ imageSrc, title, address }) => {
       {/* Background image */}
       <img
         className="absolute w-full bottom-0 z-1 h-auto pb-[64px]"
-        src='../../../public/images/hero-pattern-isiBudaya.png'
+        src='/images/hero-pattern-isiBudaya.png'
         alt="Background Pattern"
       />
       {/* Main image */}
