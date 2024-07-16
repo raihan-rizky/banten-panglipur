@@ -14,7 +14,7 @@ const AppRoutes = () => {
       <Route path="/budaya/:id" element={<IsiContent />} />
       <Route path='/profile' element={<ProfileWeb />} />
       <Route path='/wisata' element={<Wisata />} />
-      <Route path='/Budaya' element={<Budaya />} />
+      <Route path='/budaya' element={<Budaya />} />
       {/* <Route path='/Favorite' element={<Favorite />} /> */}
     </Routes>
   );
