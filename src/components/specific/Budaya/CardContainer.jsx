@@ -42,7 +42,7 @@ const CombinedCardComponent = () => {
     useEffect(() => {
         const fetchPlaces = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/places');
+                const response = await axios.get('https://backend-api-capstone-bdt-deploy.vercel.app/places');
                 console.log(response.data);
                 if (response.data && response.data.places) {
                     setPlaces(response.data.places);

@@ -15,7 +15,7 @@ const IsiContent = () => {
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/places')
+    fetch('https://backend-api-capstone-bdt-deploy.vercel.app/places')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Marquee from 'react-fast-marquee';
-import { ImageWithCaption } from "../../common/ImageWithCaption.jsx";
+import ImageWithCaption from "../../common/ImageWithCaption.jsx"; // Pastikan impor sesuai dengan eksport default
 
 const duplicateImages = (images) => {
   return [...images, ...images, ...images];
@@ -15,15 +15,17 @@ const DestinasiPilihan = () => {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/places');
+        const response = await axios.get('https://backend-api-capstone-bdt-deploy.vercel.app/places');
         const places = response.data.places;
 
-        // Filter only places with category "Pariwisata"
-        const wisataPlaces = places.filter(place => place.category === "Pariwisata");
+        // Filter places with IDs from 1 to 6 and category "Pariwisata"
+        const filteredPlaces = places.filter(place => (
+          place.category === "Pariwisata" && place.id_place >= 1 && place.id_place <= 10
+        ));
 
-        // Transform the places to match the structure needed for the component
-        const transformedPlaces = wisataPlaces.map(place => ({
-          src: place.image_place, // Assuming there's an image_url field
+        // Transform the filtered places to match the structure needed for the component
+        const transformedPlaces = filteredPlaces.map(place => ({
+          src: place.image_place,
           caption: place.place_name,
           id: place.id_place
         }));
