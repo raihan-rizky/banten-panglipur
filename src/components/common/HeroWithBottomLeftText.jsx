@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const HeroWithBottomLeftText = ({ imageSrc, title, address }) => {
   return (
-    <div className="relative z-0 w-full h-[500px] mb-10 -translate-y-2">
+    <div className="relative z-0 w-full h-[700px] mb-10 -translate-y-2">
       {/* Background image */}
       <img
         className="absolute w-full bottom-0 z-1 h-auto pb-[64px]"
-        src='../../../public/images/hero-pattern-isiBudaya.png'
+        src='/images/hero-pattern-isiBudaya.png'
         alt="Background Pattern"
       />
       {/* Main image */}

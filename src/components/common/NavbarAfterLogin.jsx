@@ -10,10 +10,10 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
             className={`md:hidden fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
         >
-            <div className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-white bg-[url('./public/images/navbar-pattern.png')] bg-slate-50 p-6">
+            <div className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-white bg-[url('/images/navbar-pattern.png')] bg-slate-50 p-6">
                 <div className="flex justify-between items-center mb-6">
                     <div className="ml-12 min-w-[100px] min-h-[46px]">
-                        <img src="./public/images/logo-banten-panglipur.png" alt="logo" />
+                        <img src="/images/logo-banten-panglipur.png" alt="logo" />
                     </div>
                     <div onClick={toggleMenu} className="cursor-pointer">
                         <ion-icon name="close" aria-hidden="true" size="large"></ion-icon>
@@ -72,7 +72,7 @@ const NavBar = () => {
         <>
             <nav className="fixed z-10 top-0 left-0 right-0 flex font-sans min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
                 <div className="ml-12 min-w-[130px] min-h-[46px]">
-                    <img src="./public/images/logo-banten-panglipur.png" alt="logo" />
+                    <img src="/images/logo-banten-panglipur.png" alt="logo" />
                 </div>
                 <div className="text-[#242424] hidden md:flex xl:max:-translate-x-28">
                     <ul className="h-6 w-6 flex gap-x-12 max-w-full items-center">

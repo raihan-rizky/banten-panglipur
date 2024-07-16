@@ -1,25 +1,46 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import ImageWithCaption2 from '../../common/ImageWithCaption';
 import { Carousel, IconButton } from "@material-tailwind/react";
 
-const images = [
-  { src: "../../public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-  { src: "../../public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-  { src: "../../public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
-];
-const images2 = [
-  { src: "../../public/images/pantai-anyer.png", caption: "Pantai Anyer" },
-  { src: "../../public/images/tanjung-lesung.png", caption: "Tanjung Lesung" },
-  { src: "../../public/images/puncak-gunung-karang.png", caption: "Puncak Gunung Karang" },
-];
-
-
 const RekomenWisataIsiBudaya = () => {
+  const [places, setPlaces] = useState([]);
+
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      try {
+        const response = await axios.get('https://backend-api-capstone-bdt-deploy.vercel.app/places');
+        console.log(response.data); // Debugging: Check the structure of response.data
+        if (!response.data || !Array.isArray(response.data.places)) {
+          throw new Error('Invalid data format from API');
+        }
+        const filteredPlaces = response.data.places.filter(place => place.category === 'Pariwisata');
+        setPlaces(filteredPlaces);
+      } catch (error) {
+        console.error('Error fetching places:', error);
+      }
+    };
+
+    fetchPlaces();
+  }, []);
+
+  // Function to get 3 random unique places for each slide
+  const getRandomPlaces = () => {
+    const uniquePlaces = [...new Set(places.map(place => place.id_place))]; // Get unique IDs
+    const randomIds = [];
+    while (randomIds.length < 3 && uniquePlaces.length > 0) {
+      const randomIndex = Math.floor(Math.random() * uniquePlaces.length);
+      randomIds.push(uniquePlaces.splice(randomIndex, 1)[0]);
+    }
+    return places.filter(place => randomIds.includes(place.id_place));
+  };
+
   return (
     <>
       <div className='container relative max-w-full h-auto'>
-        <h1 className='font-bold text-3xl text-center mb-20'>Rekomendasi Wisata</h1>
-        <div className='container max-w-full h-auto px-40 lg:px-20 md-max:px-0'>
+        <h1 className='font-bold text-3xl text-center mb-10'>Rekomendasi Wisata</h1>
+        <div className='container max-w-auto h-auto px-4 lg:px-20 md-max:px-0 px-10'>
           <Carousel transition={{ duration: 1 }} className="rounded-xl lg:min-h-[750px] vs-max:min-h-[510px] container min-h-[228px]" prevArrow={({ handlePrev }) => (
             <IconButton
               variant="text"
@@ -80,27 +101,21 @@ const RekomenWisataIsiBudaya = () => {
               </div>
             )}
           >
-            <div className='flex lg:flex-col sm-max:pr-20 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
-              {images.map((image, index) => (
-
-                <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption}
-                ></ImageWithCaption2>
-
-              ))}
-            </div>
-            <div className='flex lg:flex-col sm-max:pr-10 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
-              {images2.map((image, index) => (
-
-                <ImageWithCaption2 key={index} imageSrc={image.src} caption={image.caption}
-                > </ImageWithCaption2>
-
-              ))}
-            </div>
-
-
+            {/* Render each slide */}
+            {Array.from({ length: 2 }).map((_, slideIndex) => (
+              <div key={slideIndex} className='flex lg:flex-col sm-max:pr-20 lg:gap-32 sm-max:px-10 sm-max:gap-22 vs-max:gap-12 lg:translate-x-8 lg:transform mt-22 px-20'>
+                {getRandomPlaces().map((place, index) => (
+                  <ImageWithCaption2
+                    key={index}
+                    imageSrc={place.image_place}
+                    caption={place.place_name}
+                    imageId={place.id_place} // Assuming you have an id_place field
+                  />
+                ))}
+              </div>
+            ))}
           </Carousel>
         </div>
-
       </div>
       <div className="relative my-20 h-1 mx-60 max-w-[1900px] bg-black border-1 border-solid border-black rounded-md" />
     </>

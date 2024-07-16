@@ -6,12 +6,12 @@ const reviewData = [
   {
     name: "Jenny Wilson",
     company: "Grower.io",
-    imgSrc: "./public/images/female-person.png",
+    imgSrc: "/images/female-person.png",
   },
   {
     name: "Devon Lane",
     company: "DLDesign.co",
-    imgSrc: "./public/images/male-person.png",
+    imgSrc: "/images/male-person.png",
   },
   // Add more review data objects here
 ];
@@ -69,7 +69,7 @@ const ReviewWebsite = () => {
 
   return (
     <>
-      <div className='container bg-white min-h-[641px] [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-100px),transparent_100%)] bg-[url("./public/images/pattern-destinasi-pilihan.png")]'>
+      <div className='container bg-white min-h-[641px] [mask-image:_linear-gradient(to_right,transparent_0,_black_96px,_black_calc(100%-100px),transparent_100%)] bg-[url("/images/pattern-destinasi-pilihan.png")]'>
         <div className="flex flex-col">
           <div className="text-3xl font-extrabold text-center mt-20 mb-20 text-black md:max-w-full">
             Apa yang Orang Pikirkan Tentang Kami ?
