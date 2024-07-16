@@ -1,10 +1,10 @@
 import Hero from "../../components/specific/Favorite/HeroFavorite";
 import FavoritePage from "../../components/specific/Favorite/CardFavorite";
 
-const Wisata = () => {
+const Favorite = () => {
     return (<>
         <Hero></Hero>
         <FavoritePage></FavoritePage>
     </>)
 }
-export default Wisata;
+export default Favorite;

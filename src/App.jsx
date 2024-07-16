@@ -1,4 +1,5 @@
 import './App.css'
+// import NavBar from './components/common/NavbarAfterLogin'
 import NavBar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import AppRoutes from './routes/AppRoutes'
