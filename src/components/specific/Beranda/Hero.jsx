@@ -22,7 +22,7 @@ export default function Hero() {
                 <img src="/images/banten-hero-bg.jpg" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 1" />
               </div>
               <div className="carousel-item">
-                <img src="/images/banten-hero-bg2.png" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 2" />
+                <img src="../../../../public/images/banten-hero-bg2.png" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 2" />
               </div>
               <div className="carousel-item">
                 <img src="/images/banten-hero-bg3.webp" className="d-block  object-cover min-h-[832px] w-full" alt="Slide 3" />
