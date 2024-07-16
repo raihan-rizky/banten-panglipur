@@ -1,7 +1,7 @@
 import HeroWithBottomLeftText from "../../components/common/HeroWithBottomLeftText";
-import ContentIsiBudaya from "../../components/specific/IsiContent/ContentIsiContent";
-import MapsIsiBudaya from "../../components/specific/IsiContent/MapsIsiContent";
-import RekomenWisataIsiBudaya from "../../components/specific/IsiContent/RekomenWisataIsiContent";
+import ContentIsiContent from "../../components/specific/IsiContent/ContentIsiContent";
+import MapsIsiContent from "../../components/specific/IsiContent/MapsIsiContent";
+import RekomenWisataIsiContent from "../../components/specific/IsiContent/RekomenWisataIsiContent";
 import ReviewContent from "../../components/specific/IsiContent/ReviewContent";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -40,9 +40,9 @@ const IsiContent = () => {
   return (
     <>
       <HeroWithBottomLeftText imageSrc={imagePath} title={imageTitle} address={imageAddress} />
-      <ContentIsiBudaya placeName={placeName} description={description} />
-      <MapsIsiBudaya />
-      <RekomenWisataIsiBudaya />
+      <ContentIsiContent placeName={placeName} description={description} />
+      <MapsIsiContent />
+      <RekomenWisataIsiContent />
       <ReviewContent />
     </>
   );
