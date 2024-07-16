@@ -10,7 +10,7 @@ const Hero = () => {
             {/* Gambar Latar Belakang */}
             <div
                 className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
-                style={{ backgroundImage: 'url(/images/banten-hero-bg.jpg)' }}
+                style={{ backgroundImage: 'url(/images/banten-hero-bg.png)' }}
             />
             {/* Konten Teks */}
             <div className="relative z-20 text-center text-white flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 lg:p-12 xl:w-1/2">
