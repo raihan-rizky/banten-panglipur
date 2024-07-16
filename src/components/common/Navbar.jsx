@@ -13,7 +13,7 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-white bg-[url('./public/images/navbar-pattern.png')] bg-slate-50 p-6">
         <div className="flex justify-between items-center mb-6">
           <div className="ml-12 min-w-[100px] min-h-[46px]">
-            <img src="/images/logo-banten-panglipur.png" alt="logo" />
+            <img src="https://mywyagtgynrktqvospop.supabase.co/storage/v1/object/public/place_image/logo_banten_panglipur.png?t=2024-07-16T08%3A35%3A47.153Z" alt="logo" />
           </div>
           <div onClick={toggleMenu} className="cursor-pointer">
             <ion-icon name="close" aria-hidden="true" size="large"></ion-icon>
