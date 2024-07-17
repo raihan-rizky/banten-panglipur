@@ -4,7 +4,7 @@ import IsiContent from '../views/templates/TemplateCreator';
 import ProfileWeb from '../views/pages/ProfileWeb';
 import Wisata from '../views/pages/Wisata';
 import Budaya from '../views/pages/Budaya';
-// import Favorite from '../views/templates/Favorite';
+import Favorite from '../views/templates/Favorite';
 
 const AppRoutes = () => {
   return (
@@ -15,7 +15,7 @@ const AppRoutes = () => {
       <Route path='/profile' element={<ProfileWeb />} />
       <Route path='/wisata' element={<Wisata />} />
       <Route path='/budaya' element={<Budaya />} />
-      {/* <Route path='/Favorite' element={<Favorite />} /> */}
+      <Route path='/Favorite' element={<Favorite />} />
     </Routes>
   );
 }

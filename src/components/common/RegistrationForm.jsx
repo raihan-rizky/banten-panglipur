@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Card, Input, Checkbox, Button, Typography, IconButton } from "@material-tailwind/react";
-import { supabase } from '../../service/supabaseClient';
 
 export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
   if (!isVisible) return null;
 
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State untuk pesan sukses
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleClose = (e) => {
     if (e.target.id === 'wrapperRegis') onClose();
@@ -18,26 +17,19 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
     e.preventDefault();
 
     try {
-      const { user, error } = await supabase.auth.signUp({
-        email,
-        password,
+      const response = await fetch('https://backend-api-capstone-bdt-deploy.vercel.app/users/regist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password }),
       });
 
-      if (error) {
-        console.error('Error signing up:', error.message);
+      const data = await response.json();
+      if (response.ok) {
+        setShowSuccessMessage(true);
       } else {
-        console.log('User signed up successfully:', user);
-
-        // Simpan nama pengguna ke tabel profiles
-        const { data, error: profileError } = await supabase
-          .from('profiles')
-          .insert([{ id: user.id, name }]);
-
-        if (profileError) {
-          console.error('Error saving profile:', profileError.message);
-        } else {
-          setShowSuccessMessage(true); // Tampilkan pesan sukses
-        }
+        console.error('Error signing up:', data.message);
       }
     } catch (error) {
       console.error('Error signing up:', error.message);
@@ -46,7 +38,7 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
 
   const handleSuccessClose = () => {
     setShowSuccessMessage(false);
-    onLoginClick(); // Arahkan ke halaman login
+    onLoginClick();
   }
 
   return (
@@ -65,7 +57,7 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
           <form className="mt-1 mb-2 w-70 max-w-screen-lg sm:w-96 vs-max:w-50" onSubmit={handleSubmit}>
             <div className="mb-1 flex flex-col gap-6">
               <Typography variant="h6" color="blue-gray" className="-mb-3 vs-max:text-[14px]">
-                Your Name
+                Your Username
               </Typography>
               <Input
                 size="md"
@@ -74,8 +66,8 @@ export default function RegistrationForm({ isVisible, onClose, onLoginClick }) {
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3 vs-max:text-[14px]">
                 Your Email
