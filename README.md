@@ -25,7 +25,12 @@ npm install
 ### Run Application
 Run the application backend by executing the command
 ```sh
-npm run start-dev
+npm run dev
+```
+### Build Application
+To Build the aplication please run this command
+```sh
+npm run build
 ```
 ### Testing Application
 Testing the application using browser, by click the URL localhost
