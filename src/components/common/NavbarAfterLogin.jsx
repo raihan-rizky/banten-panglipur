@@ -41,13 +41,13 @@ const MobileMenu = ({ isOpen, toggleMenu, Links }) => {
     );
 };
 
-const NavBar = () => {
+const NavBarAfterLogin = () => {
     let Links = [
         { name: "Beranda", link: "/" },
         { name: "Profile", link: "/profile" },
         { name: "Wisata", link: "/wisata" },
         { name: "Budaya", link: "/budaya" },
-        { name: "Favorite", link: "/Favorite" },
+        { name: "Favorite", link: "/favorite" }, // Tambahkan link Favorite
     ];
     let [isOpen, setOpen] = useState(false);
     const [showRegisterForm, setShowRegisterForm] = useState(false);
@@ -131,4 +131,4 @@ MobileMenu.propTypes = {
     ).isRequired,
 };
 
-export default NavBar;
+export default NavBarAfterLogin;

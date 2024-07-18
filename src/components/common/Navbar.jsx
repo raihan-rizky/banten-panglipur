@@ -76,7 +76,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="fixed z-10 top-0 left-0 right-0 flex font-sans min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
+      <nav className="fixed z-20 top-0 left-0 right-0 flex font-sans min-h-[76px] items-center justify-between bg-[#D9D9D9]/50 px-4 sm:px-12">
         <div className="ml-12 min-w-[130px] min-h-[46px]">
           <img src="/images/logo-banten-panglipur.png" alt="logo" />
         </div>
