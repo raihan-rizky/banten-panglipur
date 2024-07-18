@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FunnelIcon } from '@heroicons/react/24/outline';
+import { useNavigate } from 'react-router-dom';
 
-const VerticalCard = ({ title, description, image }) => {
+const VerticalCard = ({ id, title, description, image, onClick }) => {
     // Function to truncate description to the first 10 words
     const truncateDescription = (str, numWords) => {
         const words = str.split(' ');
@@ -13,8 +14,11 @@ const VerticalCard = ({ title, description, image }) => {
     };
 
     return (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col sm:flex-row mb-5 w-full max-w-3xl">
-            <img className="w-full sm:w-1/3 h-48 sm:h-auto object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
+        <div
+            onClick={() => onClick(id)}
+            className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col sm:flex-row mb-5 w-full max-w-3xl cursor-pointer"
+        >
+            <img className="w-full sm:w-1/3 h-[300px] sm:h-auto object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
             <div className="p-4 flex flex-col justify-center w-full sm:w-2/3">
                 <h2 className="text-xl font-bold mb-2 truncate">{title}</h2>
                 <p className="text-gray-700 text-base truncate">{truncateDescription(description, 10)}</p>
@@ -23,10 +27,13 @@ const VerticalCard = ({ title, description, image }) => {
     );
 };
 
-const HorizontalCard = ({ title, image }) => {
+const HorizontalCard = ({ id, title, image, onClick }) => {
     return (
-        <div className="relative bg-white shadow-lg rounded-lg overflow-hidden">
-            <img className="w-full h-48 object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
+        <div
+            onClick={() => onClick(id)}
+            className="relative bg-white shadow-lg rounded-lg overflow-hidden h-[200px] w-[300px] cursor-pointer"
+        >
+            <img className="w-full h-full object-cover" src={image || '/placeholder-image.jpg'} alt={title} />
             <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
                 <h2 className="text-xl font-bold text-center">{title}</h2>
             </div>
@@ -38,6 +45,7 @@ const CombinedCardComponent = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPlaces = async () => {
@@ -57,7 +65,11 @@ const CombinedCardComponent = () => {
         fetchPlaces();
     }, []);
 
-    // Filter places by category 'Pariwisata' and search term
+    const handleCardClick = (id) => {
+        navigate(`/budaya/${id}`);
+    };
+
+    // Filter places by category 'Budaya' and search term
     const filteredPlaces = places.filter(card =>
         card.category === 'Budaya' &&
         card.place_name && card.place_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -99,9 +111,11 @@ const CombinedCardComponent = () => {
                         {filteredVerticalCards.map((card, index) => (
                             <VerticalCard
                                 key={index}
+                                id={card.id_place}
                                 title={card.place_name}
                                 description={card.description}
                                 image={card.image_place}
+                                onClick={handleCardClick}
                             />
                         ))}
                     </div>
@@ -113,22 +127,27 @@ const CombinedCardComponent = () => {
                         {filteredVerticalCards.map((card, index) => (
                             <VerticalCard
                                 key={index}
+                                id={card.id_place}
                                 title={card.place_name}
                                 description={card.description}
                                 image={card.image_place}
+                                onClick={handleCardClick}
                             />
                         ))}
                     </div>
                     <hr className="w-full sm:w-[1000px] mt-5" style={{ height: '5px', backgroundColor: 'black', borderRadius: '50px' }} />
 
-                    <div className="max-w-[1200px] mx-auto my-10 text-center px-4">
+                    <div className="max-w-[1200px] mx-auto my-10 text-center px-4 mb-[150px]">
                         <h2 className="text-2xl font-bold mb-5">Budaya Lainnya</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                             {filteredHorizontalCards.map((card, index) => (
                                 <div key={index} className="my-2">
                                     <HorizontalCard
+                                        key={index}
+                                        id={card.id_place}
                                         title={card.place_name}
                                         image={card.image_place}
+                                        onClick={handleCardClick}
                                     />
                                 </div>
                             ))}

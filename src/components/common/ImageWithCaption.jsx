@@ -10,7 +10,7 @@ const ImageWithCaption = ({ imageSrc, caption, imageId }) => {
   };
 
   return (
-    <div className="relative text-center text-white max-w-[400px] max-h-[300px]">
+    <div className="relative text-center text-white max-w-[400px] max-h-auto ">
       <img
         loading="lazy"
         src={imageSrc}

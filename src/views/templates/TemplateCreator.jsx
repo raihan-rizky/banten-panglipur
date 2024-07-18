@@ -1,21 +1,17 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import HeroWithBottomLeftText from "../../components/common/HeroWithBottomLeftText";
 import ContentIsiContent from "../../components/specific/IsiContent/ContentIsiContent";
 import MapsIsiContent from "../../components/specific/IsiContent/MapsIsiContent";
-import RekomenWisataIsiContent from "../../components/specific/IsiContent/RekomenWisataIsiContent";
+import RekomendasiWisata from '../../components/specific/IsiContent/RekomendasiWisata';
 import ReviewContent from "../../components/specific/IsiContent/ReviewContent";
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
-const IsiContent = () => {
+const TemplateCreator = () => {
   const { id } = useParams();
-  const [imagePath, setImagePath] = useState('');
-  const [imageTitle, setImageTitle] = useState('');
-  const [imageAddress, setImageAddress] = useState('');
-  const [placeName, setPlaceName] = useState('');
-  const [description, setDescription] = useState('');
+  const [place, setPlace] = useState(null);
 
   useEffect(() => {
-    fetch('https://backend-api-capstone-bdt-deploy.vercel.app/places')
+    fetch(`https://backend-api-capstone-bdt-deploy.vercel.app/places/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -23,29 +19,26 @@ const IsiContent = () => {
         return response.json();
       })
       .then(data => {
-        const item = data.places.find(d => d.id_place === id);
-        if (item) {
-          setImagePath(item.image_place);
-          setImageTitle(item.place_name);
-          setImageAddress(item.city);
-          setPlaceName(item.place_name); // Set placeName from API data
-          setDescription(item.description); // Set description from API data
-        }
+        setPlace(data.place);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, [id]);
 
+  if (!place) {
+    return null;
+  }
+
   return (
     <>
-      <HeroWithBottomLeftText imageSrc={imagePath} title={imageTitle} address={imageAddress} />
-      <ContentIsiContent placeName={placeName} description={description} />
-      <MapsIsiContent />
-      <RekomenWisataIsiContent />
+      <HeroWithBottomLeftText imageSrc={place.image_place} title={place.place_name} address={place.city} />
+      <ContentIsiContent placeName={place.place_name} description={place.description} />
+      <MapsIsiContent place={place} />
+      <RekomendasiWisata />
       <ReviewContent />
     </>
   );
 }
 
-export default IsiContent;
+export default TemplateCreator;
